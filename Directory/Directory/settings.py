@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -65,6 +66,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect'
             ],
         },
     },
@@ -115,6 +119,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+#Social Auth
+
+AUTHENTICATION_BACKENDS = (
+
+    'social.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '901154482963-4ppgdo92gp6m68m3ga5s0471ed9fe41u.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 't0262ZYJuQkyS-cf_eer-nJ5'
 
 
 # Static files (CSS, JavaScript, Images)
